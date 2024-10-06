@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +29,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="bg-gray-800 text-white p-4">
+          <nav className="container mx-auto">
+            <Link href="/categorias" className="text-white hover:underline mr-4">
+              Categorías
+            </Link>
+            <Link href="/categorias/crear" className="text-white hover:underline">
+              Crear Categoría
+            </Link>
+          </nav>
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );
